@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/fonts/open_sans/bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/classes/dynamic_text_label.gd" type="Script" id=2]
+[ext_resource path="res://resources/fonts/open_sans/regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/classes/generic_button.gd" type="Script" id=4]
+[ext_resource path="res://src/classes/text_button_master.gd" type="Script" id=5]
+[ext_resource path="res://src/menus/main_menu/main_menu.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+size = 39
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="Back" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_top = 0.36
+anchor_right = 1.0
+anchor_bottom = 0.64
+alignment = 1
+
+[node name="Start" type="Control" parent="Buttons"]
+margin_right = 1024.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+puppet_node = NodePath("Text")
+master_node = NodePath("Master")
+
+[node name="Text" type="RichTextLabel" parent="Buttons/Start"]
+anchor_right = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Start Quiz"
+text = "Start Quiz"
+fit_content_height = true
+scroll_active = false
+script = ExtResource( 2 )
+normal_font_size = 80
+bold_font_size = 80
+
+[node name="Master" type="TextureButton" parent="Buttons/Start"]
+margin_right = 40.0
+margin_bottom = 40.0
+expand = true
+script = ExtResource( 5 )
+alignment = 1
+text_node = NodePath("../Text")
+
+[node name="Exit" type="Control" parent="Buttons"]
+margin_top = 85.0
+margin_right = 1024.0
+margin_bottom = 167.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+puppet_node = NodePath("Text")
+master_node = NodePath("Master")
+
+[node name="Text" type="RichTextLabel" parent="Buttons/Exit"]
+anchor_right = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Exit"
+text = "Exit"
+fit_content_height = true
+scroll_active = false
+script = ExtResource( 2 )
+normal_font_size = 80
+bold_font_size = 80
+
+[node name="Master" type="TextureButton" parent="Buttons/Exit"]
+margin_right = 40.0
+margin_bottom = 40.0
+expand = true
+script = ExtResource( 5 )
+alignment = 1
+text_node = NodePath("../Text")

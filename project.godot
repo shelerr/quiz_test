@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "ButtonColors",
+"language": "GDScript",
+"path": "res://src/custom_resources/text_data/button_colors.gd"
+}, {
+"base": "RichTextLabel",
+"class": "DynamicTextLabel",
+"language": "GDScript",
+"path": "res://src/classes/dynamic_text_label.gd"
+}, {
+"base": "Control",
+"class": "GenericButton",
+"language": "GDScript",
+"path": "res://src/classes/generic_button.gd"
+}, {
+"base": "Reference",
+"class": "Matrix",
+"language": "GDScript",
+"path": "res://src/classes/matrix.gd"
+}, {
+"base": "TextureButton",
+"class": "TextButtonMaster",
+"language": "GDScript",
+"path": "res://src/classes/text_button_master.gd"
+} ]
+_global_script_class_icons={
+"ButtonColors": "",
+"DynamicTextLabel": "",
+"GenericButton": "",
+"Matrix": "",
+"TextButtonMaster": ""
+}
+
+[application]
+
+config/name="Quiz"
+run/main_scene="res://src/main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Tweens="*res://src/autoload/tweens.gd"
+Colors="*res://src/autoload/colors.gd"
+Position="*res://src/autoload/position.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_clear_color=Color( 0.333333, 0.333333, 0.333333, 1 )
+environment/default_environment="res://default_env.tres"
